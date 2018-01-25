@@ -6,8 +6,7 @@ class Person{
         this.country = country;
     }
     greeting(){
-        console.log(
-            `Hi my name is ${this.name} and I work as a ${this.occupation}`);
+        return `Hi my name is ${this.name} and I work as a ${this.occupation}`;
     }
 }
 

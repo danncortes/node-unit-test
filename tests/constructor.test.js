@@ -2,26 +2,22 @@ var assert = require('chai').assert;
 var should = require('chai').should();
 const Person = require('../constructor');
 
-const worker = new Person('Daniel', 37, 'developer', 'Venezuela');
 
 describe('Person Class', () => {
-    it('Should create an person object', () => {
-        assert.typeOf(worker, 'object');
+    it('Should greet with name and profession', () => {
+        //Arrange
+        const worker = new Person('Daniel', 37, 'developer', 'Venezuela');
+        //Act
+        const greeting = worker.greeting();
+        //Assert
+        assert.equal(greeting, 'Hi my name is Daniel and I work as a developer');
     });
 
-    it('Should has a name property', () => {
-        worker.should.include.keys('name');
+    it('Should has US as country by default', ()=>{
+        //Arrange
+        const worker = new Person('Daniel', 37, 'developer');
+        //Act
+        //Assert
+        assert.equal(worker.country, 'US');
     })
-
-    it('Should has a age property', () => {
-        worker.should.include.keys('age');
-    });
-
-    it('Should has an occupation property', () => {
-        worker.should.include.keys('occupation');
-    });
-
-    it('Should has a greeting method', () => {
-        assert.typeOf(worker.greeting, 'function');
-    });
 });
