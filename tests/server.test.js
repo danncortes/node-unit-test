@@ -12,16 +12,17 @@ describe('Server', () => {
             .end(done);
     });
 
-    it('Should return my user object', () => {
+    it('Should return my user object', (done) => {
         request(app)
             .get('/users')
             .expect(200)
             .expect((res) => {
                 //This next expect is from chai
-                expect(res.body).toInclude({
+                expect(res.body).to.deep.include({
                     name:'Daniel',
                     year: 1980 
                 });
-            });
+            })
+            .end(done);
     });
 });
