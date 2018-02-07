@@ -1,7 +1,7 @@
 const request = require('supertest');
-var expect = require('chai').expect;
+const { expect } = require('chai');
 
-var app = require('../app').app;
+const { app } = require('../app');
 
 describe('Server', () => {
     it('Should return hello world response', (done) => {
@@ -17,10 +17,10 @@ describe('Server', () => {
             .get('/users')
             .expect(200)
             .expect((res) => {
-                //This next expect is from chai
+                // This next expect is from chai
                 expect(res.body).to.deep.include({
-                    name:'Daniel',
-                    year: 1980 
+                    name: 'Daniel',
+                    year: 1980,
                 });
             })
             .end(done);
